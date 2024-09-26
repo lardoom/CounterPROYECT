@@ -22,6 +22,8 @@ namespace Counter.Core.Interfaces
         Task<BaseResult> IngresarPais(PaisInput EntradaPais);
         Task<JugadoresPyA> ConsultarJugadorPyA(string NombreJugador);
 
+        Task<Killer> Jugadorkiller();
+
         /* Task<JugadoresResult> Partidas(string Patridasganadas);
 
          /*Task<BaseResult> IngresarPais(PaisInput EntradaPais);

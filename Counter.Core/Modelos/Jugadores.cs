@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Counter.Core.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,8 @@ namespace Counter.Core.Modelos
 
         public string? Pais { get; set; }
 
-      //public string? Armas { get; set; }
-       
+        //public string? Armas { get; set; }
+
     }
 
     public class JugadoresResult : BaseResult
@@ -40,14 +41,26 @@ namespace Counter.Core.Modelos
 
         //public ArmasInput? Armas { get; set; }
 
-        
+
     }
 
     public class JugadoresPyA : BaseResult
-        {
-              public string? Nombre { get; set; }
-              public int Edad { get; set; }
-              public List<ArmasData>? Armas { get; set; } = new List<ArmasData>();
-              public PaisData? Pais { get; set; } = new PaisData();
-        }
+    {
+        public string? Nombre { get; set; }
+        public int Edad { get; set; }
+        public List<ArmasData>? Armas { get; set; } = new List<ArmasData>();
+        public PaisData? Pais { get; set; } = new PaisData();
     }
+
+    public class Killer : BaseResult
+    {
+
+        public string? Nombre { get; set; }
+
+        public int Edad { get; set; }
+
+        public int RondasGanadas { get; set; }
+    }
+  
+}
+

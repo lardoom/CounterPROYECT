@@ -234,14 +234,57 @@ namespace Counter.Core.Servicios
                 );
             
             }
+            return jugadoresPyARes;
+        }
+
+        //Otro servicio 
+        public async Task<Killer> Jugadorkiller()
+        {
+            await Task.CompletedTask;
+
           
 
+            
+            var consultakills = await _context.Jugadores.Where(e => e.RondasGanadas >5).ToListAsync();
 
 
+           
 
-            return jugadoresPyARes;
+        
+
+            return new Killer
+            {
+                Success = true,
+                Nombre = consultakills
+                RondasGanadas = consultakills.RondasGanadas,
+
+            };
 
         }
 
     }
 }
+//public async Task<EquiposResult> ConsultarEquipo(string nombreDeEquipo)
+//{
+//    await Task.CompletedTask;
+
+//    var consulta = await _context.Equipos.Where(n => n.Nombre == nombreDeEquipo).FirstOrDefaultAsync();
+
+//    if (consulta == null)
+//    {
+//        return new EquiposResult
+//        {
+//            Success = false,
+//            Message = $"No se encontró ningún equipo con el nombre {nombreDeEquipo}."
+//        };
+//    }
+
+//    return new EquiposResult
+//    {
+//        Success = true,
+//        Nombre = consulta.Nombre,
+//        TorneosGanados = consulta.TorneosGanados,
+
+//    };
+
+//}

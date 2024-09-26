@@ -140,6 +140,29 @@ namespace Counter.API.Controllers
 
 
         }
+        [HttpGet]
+        [Route("consultakiller")]
+
+        public async Task<Killer> Jugadorkiller ()
+        {
+
+            try
+            {
+                return await _counterService.Jugadorkiller();
+
+            }
+            catch
+            {
+
+                return new Killer
+                {
+                    Success = false,
+                    Message = "No salio bien la operacion."
+                };
+            }
+
+
+        }
 
 
 

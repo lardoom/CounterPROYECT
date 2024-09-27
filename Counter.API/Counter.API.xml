@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Counter.API</name>
+    </assembly>
+    <members>
+        <member name="T:Counter.API.Controllers.CounterController">
+            <summary>
+            Nombre del controlador.
+            </summary>
+        </member>
+        <member name="M:Counter.API.Controllers.CounterController.IngresarEquipo(Counter.Core.Modelos.Equipos.EquiposInput)">
+            <summary>
+            Permite ingresar datos de un equipo.
+            </summary>
+            <param name="entrada"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Counter.API.Controllers.CounterController.ConsultarEquipo(System.String)">
+            <summary>
+            Permite consultar los datos de un equipo.
+            </summary>
+            <param name="nombreDeEquipo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Counter.API.Controllers.CounterController.IngresarJugador(Counter.Core.Modelos.Jugadores.JugadoresInput)">
+            <summary>
+            Permite ingresar datos de un jugador.
+            </summary>
+            <param name="EntradaJugador"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Counter.API.Controllers.CounterController.IngresarArma(Counter.Core.Modelos.Armas.ArmasInput)">
+            <summary>
+            Permite ingresar datos de un arma
+            </summary>
+            <param name="EntradaArma"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Counter.API.Controllers.CounterController.IngresarArmasBulk(System.Collections.Generic.List{Counter.Core.Modelos.Armas.ArmasInput})">
+            <summary>
+            Permite ingresar una o varias armas.
+            </summary>
+            <param name="bulk"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Counter.API.Controllers.CounterController.ingresarPais(Counter.Core.Modelos.Pais.PaisInput)">
+            <summary>
+            Permite ingresar los datos de un país.
+            </summary>
+            <param name="EntradaPais"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Counter.API.Controllers.SpecialController">
+            <summary>
+            Nombre del controlador.
+            </summary>
+        </member>
+        <member name="M:Counter.API.Controllers.SpecialController.MayorRondasGanadas(System.Int32)">
+            <summary>
+            Permite consultar los jugadores con un número mayor a N partidas ganadas.
+            </summary>
+            <param name="rondasGanadas"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Counter.API.Controllers.SpecialController.PromedioRondasGanadasPorEquipo">
+            <summary>
+            Permite saber el promedio de rondas ganadas por cada equipo registrado.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Counter.API.Controllers.SpecialController.JugadorConMasKills">
+            <summary>
+            Permite saber cuál es el jugador con mayor número de kills.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Counter.API.Controllers.SpecialController.MapaFavYPrecTiro(System.String,System.Decimal)">
+            <summary>
+            Permite saber los jugadores cuyo mapa favorito sea M y precisión de tiro se mayor a N
+            </summary>
+            <param name="nombreMapa">M</param>
+            <param name="precisionTiro">N</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

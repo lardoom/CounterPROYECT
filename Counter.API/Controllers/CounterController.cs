@@ -1,25 +1,33 @@
 ﻿using Counter.Core.Interfaces;
 using Counter.Core.Modelos;
+using Counter.Core.Modelos.Armas;
+using Counter.Core.Modelos.Equipos;
+using Counter.Core.Modelos.Jugadores;
+using Counter.Core.Modelos.Pais;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Counter.API.Controllers
 {
+    /// <summary>
+    /// Nombre del controlador.
+    /// </summary>
     [Route("api/[Controller]")]
     [ApiController]
-    public class EquiposController : BaseController
+    public class CounterController : BaseController
     {
-        public EquiposController(IConfiguration configuration, IHttpContextAccessor contextAccessor, ICounterService counterService) : base(configuration, contextAccessor, counterService) {
+        public CounterController(
+            IConfiguration configuration, 
+            IHttpContextAccessor contextAccessor, 
+            ICounterService counterService) : 
+            base(configuration, contextAccessor, counterService) {}
 
+        #region EQUIPOS
 
-        }
-
-        [HttpGet]
-        [Route("Team")]
-
-        public string Team(string team)
-        {
-            return $"hola mundo" + team;
-        }
+        /// <summary>
+        /// Permite ingresar datos de un equipo.
+        /// </summary>
+        /// <param name="entrada"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("IngresarEquipo")]
         public async Task<BaseResult> IngresarEquipo(EquiposInput entrada)
@@ -38,7 +46,11 @@ namespace Counter.API.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Permite consultar los datos de un equipo.
+        /// </summary>
+        /// <param name="nombreDeEquipo"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("ConsultarEquipo")]
         public async Task<EquiposResult> ConsultarEquipo(string nombreDeEquipo)
@@ -56,6 +68,16 @@ namespace Counter.API.Controllers
                 };
             }
         }
+
+        #endregion
+
+        #region JUGADORES
+
+        /// <summary>
+        /// Permite ingresar datos de un jugador.
+        /// </summary>
+        /// <param name="EntradaJugador"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("IngresarJugador")]
         public async Task<BaseResult> IngresarJugador(JugadoresInput EntradaJugador)
@@ -73,6 +95,16 @@ namespace Counter.API.Controllers
                 };
             }
         }
+
+        #endregion
+
+        #region ARMAS
+
+        /// <summary>
+        /// Permite ingresar datos de un arma
+        /// </summary>
+        /// <param name="EntradaArma"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("IngresarArma")]
         public async Task<BaseResult> IngresarArma(ArmasInput EntradaArma)
@@ -90,13 +122,43 @@ namespace Counter.API.Controllers
                     Message = "No salió bien la operación."
                 };
             }
-
-
-
         }
+
+        /// <summary>
+        /// Permite ingresar una o varias armas.
+        /// </summary>
+        /// <param name="bulk"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("IngresarArmasBulk")]
+        public async Task<BaseResult> IngresarArmasBulk(List<ArmasInput> bulk)
+        {
+
+            try
+            {
+                return await _counterService.IngresarArmasBulk(bulk);
+            }
+            catch
+            {
+                return new BaseResult
+                {
+                    Success = false,
+                    Message = "No salió bien la operación."
+                };
+            }
+        }
+
+        #endregion
+
+        #region PAIS
+
+        /// <summary>
+        /// Permite ingresar los datos de un país.
+        /// </summary>
+        /// <param name="EntradaPais"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("IngresarPais")]
-
         public async Task<BaseResult> ingresarPais(PaisInput EntradaPais)
         {
             try
@@ -113,36 +175,8 @@ namespace Counter.API.Controllers
                     Message = "No salio bien la operacion."
                 };
             }
-
-
-
-        }
-        [HttpGet]
-        [Route("consultarjugadorespaisesArmas")]
-
-        public async Task<JugadoresPyA> ConsultarJugadorPyA(string NombreJugador)
-        {
-            try
-            {
-                return await _counterService.ConsultarJugadorPyA(NombreJugador);
-
-            }
-            catch
-            {
-
-                return new JugadoresPyA
-                {
-                    Success = false,
-                    Message = "No salio bien la operacion."
-                };
-            }
-
-
-
         }
 
-
-
-
+        #endregion
     }
 }

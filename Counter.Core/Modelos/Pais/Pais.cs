@@ -4,21 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Counter.Core.Modelos
+namespace Counter.Core.Modelos.Pais
 {
-    public class EquiposInput
+    public class PaisInput : PaisData
+    {
+
+
+    }
+    public class PaisResult : BaseResult
     {
         public string? Nombre { get; set; }
-       
-        public int TorneosGanados { get; set; }
 
-        
+
     }
 
-    public class EquiposResult : BaseResult
+    public class PaisData
     {
+
         public string? Nombre { get; set; }
-      
-        public int TorneosGanados { get; set; }
+
     }
 }

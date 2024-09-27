@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Counter.Core.Modelos.Armas;
+using Counter.Core.Modelos.Pais;
 
-namespace Counter.Core.Modelos
+namespace Counter.Core.Modelos.Jugadores
 {
     public class JugadoresInput
     {
@@ -21,8 +23,8 @@ namespace Counter.Core.Modelos
 
         public string? Pais { get; set; }
 
-      //public string? Armas { get; set; }
-       
+        //public string? Armas { get; set; }
+
     }
 
     public class JugadoresResult : BaseResult
@@ -37,17 +39,6 @@ namespace Counter.Core.Modelos
 
         public List<ArmasData>? Armas { get; set; }
         public PaisInput? Pais { get; set; }
-
-        //public ArmasInput? Armas { get; set; }
-
-        
     }
+}
 
-    public class JugadoresPyA : BaseResult
-        {
-              public string? Nombre { get; set; }
-              public int Edad { get; set; }
-              public List<ArmasData>? Armas { get; set; } = new List<ArmasData>();
-              public PaisData? Pais { get; set; } = new PaisData();
-        }
-    }
